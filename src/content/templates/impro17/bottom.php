@@ -4,13 +4,11 @@
 </main>
 </div>
 <footer class="footer">
-
 	<div class="row">
-
 		<div class="col-sm-6">
-			<p>&copy; 
+			<p>&copy;
     <?php if(date("Y") > 2016){?>
-    2016 - 
+    2016 -
     <?php
 				}
 				?>
@@ -18,9 +16,9 @@
 	</p>
 		</div>
 		<div class="col-sm-6">
-		<!--
+			<!--
 			<p class="imprint-right">
-			
+
 				<a href="#"><?php translate("imprint");?></a>
 			</p>
 			-->
