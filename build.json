@@ -1,11 +1,11 @@
 {
 	"id": "theme_impro17",
-	"version": "1.0.8",
+	"version": "2.0.0",
 	"description": "A theme based on theme-2017",
 	"categories": [
 		"theme",
 		"design"
 	],
-	"compatible_from": "2018.3",
+	"compatible_from": "2019.1",
 	"dependencies" : ["bootstrap", "slicknav"]
 }
