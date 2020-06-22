@@ -6,6 +6,6 @@
 		"theme",
 		"design"
 	],
-	"compatible_from": "2019.4.1",
+	"compatible_from": "2020.2.3",
 	"dependencies" : ["bootstrap", "slicknav"]
 }
