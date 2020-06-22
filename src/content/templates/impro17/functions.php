@@ -41,7 +41,7 @@ function jumbotron_get_menu($name = "top", $parent_id = null, $recursive = true,
                 $additional_classes .= "active ";
             }
 
-            if (get_requested_pagename() != $row->slug) {
+            if (get_slug() != $row->slug) {
                 $html .= "  <li class='" . trim($additional_classes) . "'>";
             } else {
                 $html .= "  <li class='active" . rtrim($additional_classes) . "'>";
@@ -62,13 +62,13 @@ function jumbotron_get_menu($name = "top", $parent_id = null, $recursive = true,
             $url = ($row->type == "link" or $row->type == "node") ? $row->link_url : buildSEOUrl($row->slug);
             $url = Template::getEscape($url);
 
-            if (get_requested_pagename() != $row->slug) {
+            if (get_slug() != $row->slug) {
                 $html .= "<a href='" . $url . "' target='" . $row->target . "' class='" . trim($additional_classes) . "'>";
             } else {
                 $html .= "<a class='menu_active_link" . rtrim($additional_classes) . "' href='" . $url . "' target='" . $row->target . "'>";
             }
 
-            if (!is_null($row->menu_image) and ! empty($row->menu_image)) {
+            if (!is_null($row->menu_image) && !empty($row->menu_image)) {
                 $html .= '<img src="' . $row->menu_image . '" alt="' . _esc($title) . '"/>';
             } else {
                 $html .= _esc($title);

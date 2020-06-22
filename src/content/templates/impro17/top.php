@@ -52,7 +52,7 @@ if (!$searchPage) {
 
             <div id="mobile-nav"></div>
             <?php
-            if ((!containsModule(null, "extended_search") and ! containsModule(null, "search")) and $hasSearch and $searchPage) {
+            if ((!containsModule(null, "extended_search") && !containsModule(null, "search")) and $hasSearch and $searchPage) {
                 ?>
                 <form id="search-form-head" method="get"
                       action="<?php Template::escape(buildSEOURL($searchPage->slug)); ?>">
@@ -70,7 +70,7 @@ if (!$searchPage) {
                     logo();
                 }
                 ?>
-                <p class="lead"><?php echo Settings::get("motd"); ?></p>
+                <div class="lead"><?php echo Settings::get("motd"); ?></div>
                 <p>
                     <a class="btn btn-lg btn-success" href="admin/" role="button"><?php translate("login") ?></a>
                 </p>
