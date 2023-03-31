@@ -1,4 +1,6 @@
 <?php
+use App\Helpers\DateTimeHelper;
+
 $id = get_ID();
 if ($id !== null) {
     $list = new List_Data($id);
@@ -40,13 +42,13 @@ if ($id !== null) {
                     $article_date = $entry->article_date ?? $entry->created;
                     $excerpt = strip_tags($meta->excerpt, '<img><iframe><embed><object>');
                     $excerpt = trim($excerpt);
-                    $excerpt = StringHelper::isNotNullOrWhitespace($excerpt) ? $meta->excerpt : $entry->content;
+                    $excerpt = !empty($excerpt) ? $meta->excerpt : $entry->content;
                     ?>
                     <div class="article-list-row">
                         <p>
                             <strong><a
                                     href="<?php Template::escape(buildSEOUrl($entry->slug, $entry->link_url)); ?>"><?php Template::escape($entry->title); ?></a></strong>
-                            <br /> <small><?php translate('date'); ?>: <?php echo strftime('%x %X', $article_date); ?></small>
+                            <br /> <small><?php translate('date'); ?>: <?php echo DateTimeHelper::timestampToFormattedDateTime($article_date); ?></small>
                         </p>
                         <p><?php echo $excerpt; ?></p>
                         <p>
