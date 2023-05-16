@@ -1,13 +1,16 @@
 <?php
+
+defined('ULICMS_ROOT') || exit('No direct script access allowed');
+
 $site_slogan = get_site_slogan();
-$data = get_custom_data();
+$data = CustomData::get();
 $site_slogan = $data['site_slogan'] ?? get_site_slogan();
 
-$q = $_GET["q"] ?? '';
+$q = $_GET['q'] ?? '';
 
 $modules = getAllModules();
-$hasSearch = in_array("extended_search", $modules);
-$searchPage = ModuleHelper::getFirstPageWithModule("extended_search");
+$hasSearch = in_array('extended_search', $modules);
+$searchPage = \App\Helpers\ModuleHelper::getFirstPageWithModule('extended_search');
 
 html5_doctype();
 og_html_prefix();
@@ -17,8 +20,8 @@ og_html_prefix();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
           href="<?php echo getModulePath('bootstrap'); ?>css/bootstrap.min.css">
-          <?php
-          base_metas();
+<?php
+    base_metas();
 og_tags();
 
 enqueueStylesheet(getTemplateDirPath('impro17') . 'style.scss');
@@ -39,7 +42,7 @@ combinedStylesheetHtml();
 
             <div id="mobile-nav"></div>
             <?php
-  if (!containsModule(null, 'extended_search') && $hasSearch && $searchPage) {
+  if (! containsModule(null, 'extended_search') && $hasSearch && $searchPage) {
       ?>
                 <form id="search-form-head" method="get"
                       action="<?php Template::escape(buildSEOURL($searchPage->slug)); ?>">
@@ -60,7 +63,7 @@ combinedStylesheetHtml();
             ?>
                 <div class="lead"><?php echo Settings::get('motd'); ?></div>
                 <p>
-                    <a class="btn btn-lg btn-success" href="admin/" role="button"><?php translate('login') ?></a>
+                    <a class="btn btn-lg btn-success" href="admin/" role="button"><?php translate('login'); ?></a>
                 </p>
             </div>
         <?php } ?>
